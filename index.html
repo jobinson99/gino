@@ -10,8 +10,8 @@
 
     <style>
      .templink {
-       width: 100%;
-       height: 100%;
+       width: 1%;
+       height: 1%;
        display: block;
        position: fixed;
        z-index: 100;
@@ -19,10 +19,137 @@
        margin-left: -10px;
      }
     </style>
-
+<style>
+body
+{
+   background-color: #aaa;
+   color: #222;
+   margin: 0px;
+   font-family: sans,sans-serif;
+}
+#canvas
+{
+   background-color: #fff;
+   border: 1px solid #222;
+}
+.canoutput {
+position:absolute;
+    top: 0px;
+    right: 0px;
+}
+.codewrapper
+{
+   z-index: 100;
+}
+#code
+{
+   width: 500px;
+   height: 496px;
+}
+#errors
+{
+   width: 496px;
+   font-family: "Courier New";
+   font-weight: bold;
+   font-size: 0.8em;
+   color: #000;
+   border: 1px dashed red;
+   padding: 2px;
+   display: none;
+}
+.vars
+{
+   font-size: 0.8em;
+   padding-left: 4px;
+}
+.vars code
+{
+   font-size: 1.2em;
+}
+.controls
+{
+   font-size: 0.8em;
+   padding-bottom: 6px;
+}
+.controls button
+{
+   font-size: 0.9em;
+}
+.title
+{
+   font-size: 1.2em;
+}
+.credits
+{
+   font-size: 0.8em;
+   position: absolute;
+   bottom: 0px;
+   padding: 8px;
+   line-height: 1.2em;
+}
+      </style>
+<script src="js/sandbox.js"></script>      
+      
   </head>
   
   <body>
+
+      
+      <div class="codewrapper">
+         <div class="title">JavaScript代码</div>
+         <textarea style="width: 748px; height: 505px;" id="code"></textarea>
+         <div class="controls">
+            <input id="control-realtime" checked="checked" title="Realtime code compiling as you type and immediate update on the Canvas." type="checkbox">
+            <label for="control-realtime" title="Realtime code compiling as you type and immediate update on the Canvas.">实时更新</label>
+            <button style="padding-right:12px" id="control-run">执行</button>
+            <input id="control-animate" checked="checked" title="Run your code in an endless animation loop." type="checkbox">
+            <label for="control-animate" title="Run your code in an endless animation loop.">无限循环动画</label>
+            <select style="margin-left:12px" id="control-demos">
+               <option selected="selected" value="">选择示例代码...</option>
+               <option value="js/rectangles.js">1. Random Rectangles</option>
+               <option value="js/cloud.js">2. Biezer Cloud</option>
+               <option value="js/plasma.js">3. Plasma Effect</option>
+               <option value="js/starfield.js">4. Starfield</option>
+               <option value="js/js1klove.js">5. JS1K Love Demo</option>
+               <option value="js/curvemorphing.js">6. Curve Morphing</option>
+            </select>
+         </div>
+         <div class="canoutput">
+         <div class="title">HTML5 Canvas 输出</div>
+         <canvas width="500" height="500" id="canvas"></canvas>
+         <div id="errors"></div>
+      </div>
+         
+         
+         <div class="vars">常用参数如下：
+            <ul>
+               <li><code>ctx</code> - the HTML5 Canvas drawing context</li>
+               <li><code>width</code> - width of the canvas element in pixels</li>
+               <li><code>height</code> - height of the canvas element in pixels</li>
+            </ul>
+            <div>
+               <div style="float:left">
+                  <span style="padding-right:12px">API help:</span><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html" target="new">The Canvas Element API</a>
+               </div>
+               <div style="float:left;margin-left:12px">
+                  <a href="http://www.nihilogic.dk/labs/canvas_sheet/HTML5_Canvas_Cheat_Sheet.png" target="new">Canvas一览表</a>
+               </div>
+               <div style="clear:both;float:left">
+                  <span style="padding-right:12px">示例和教程：</span><a href="http://www.canvasdemos.com/" target="new">Canvas示例</a>
+               </div>
+               <div style="float:left;margin-left:12px">
+                  <a href="http://www.html5canvastutorials.com/" target="new">HTML5 Canvas 教程</a>
+               </div>
+            </div>
+         </div>
+      </div>    
+<!--
+TODO:
+FPS and TPF output
+Canvas resizer (show canvas dimensions)
+HTML5 localstorage for fixed load/save slots, save control flags (json?) also
+Syntax highlighting
+-->
     
     <iframe class="templink" src="http://shop115364028.taobao.com"></iframe>
     
